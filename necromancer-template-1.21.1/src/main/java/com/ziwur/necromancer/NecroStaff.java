@@ -1,4 +1,4 @@
-package necromancer.modid;
+package com.ziwur.necromancer;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
@@ -19,12 +19,12 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class SoulTomeItem extends Item {
+public class NecroStaff extends Item {
 
     private int spawnMode = 0;
     private boolean targetPlayers = false;
 
-    public SoulTomeItem(Settings settings) {
+    public NecroStaff(Settings settings) {
         super(settings);
     }
 
