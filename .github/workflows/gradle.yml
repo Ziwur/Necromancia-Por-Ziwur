@@ -16,13 +16,15 @@ jobs:
     - uses: actions/checkout@v4
     
     - name: Set up JDK 21
-      uses: actions/setup-java@v4
+      uses: actions/setup-java@v5
       with:
         java-version: '21'
         distribution: 'temurin'
 
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v3
+    - name: Setup Gradle (Sin caché para evitar errores de red)
+      uses: gradle/actions/setup-gradle@v4
+      with:
+        cache-disabled: true
 
     - name: Grant execute permission for gradlew
       working-directory: ./necromancer-template-1.21.1
@@ -30,7 +32,7 @@ jobs:
 
     - name: Build with Gradle
       working-directory: ./necromancer-template-1.21.1
-      run: ./gradlew build
+      run: ./gradlew build --no-daemon
 
     - name: Upload Mod Jar
       uses: actions/upload-artifact@v4
